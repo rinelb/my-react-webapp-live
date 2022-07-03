@@ -1,11 +1,14 @@
 
 import { useEffect,useState } from 'react';
+import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css'; //run-> npm install --save bootstrap@^4.0.0-alpha.6  react-bootstrap@^0.32.1
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap.bundle.min'; 
+import Books from "./pages/Books"
+import Images from './components/book.jpeg';
  
-
+// import Container from 'react-bootstrap' //npm install react-bootstrap bootstrap
  
 function App() {
 
@@ -32,14 +35,24 @@ function App() {
       display: width>200 ? 'none' : 'flex',
     }
 
-  if (width>400){  
+  if (width>800){  
   return (
-   <div><h1>Rinel big</h1></div>
+ 
+   <div className="APP-PC">
+      <h1>Rinel big</h1>
+      <Books/>
+      
+    </div>
   );
   }else{
 
   return (
-    <div><h1>Rinel samll</h1></div>
+    
+      <div className="APP-Mobile">
+        <h1>Rinel small</h1>
+        <Books/>
+      </div>
+    
    );
   }
 

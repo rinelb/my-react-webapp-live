@@ -1,0 +1,31 @@
+[
+    {"id":1,
+    "name":"Books",
+    "price":10.88,
+    "imgUrl":"http://localhost:3001/img/1_1.png"
+},
+{"id":2,
+    "name":"not book",
+    "price":10.89,
+    "imgUrl":"http://localhost:3001/img/dates.png"
+},
+{"id":3,
+    "name":"not book",
+    "price":10.89,
+    "imgUrl":"http://localhost:3001/img/1_1.png"
+},{"id":3,
+    "name":"not book",
+    "price":10.89,
+    "imgUrl":"http://localhost:3001/img/1_1.png"
+},{"id":3,
+    "name":"not book",
+    "price":10.89,
+    "imgUrl":"http://localhost:3001/img/1_1.png"
+},{"id":3,
+    "name":"not book",
+    "price":10.89,
+    "imgUrl":"http://localhost:3001/img/1_1.png"
+}
+
+
+]
