@@ -1,31 +1,31 @@
 [
     {"id":1,
-    "name":"Books1",
-    "author":10.88,
+    "name":"Eldest",
+    "author":"Christorpher Paolini",
     "imgUrlF":"http://localhost:3001/img/1_1.png",
     "imgUrlB":"http://localhost:3001/img/1_2.png"
 },
 {"id":2,
-    "name":"Books2",
-    "author":10.88,
+    "name":"Second Foundation",
+    "author":"Asimov",
     "imgUrlF":"http://localhost:3001/img/2_1.png",
     "imgUrlB":"http://localhost:3001/img/2_2.png"
 },
 {"id":3,
-    "name":"Books3",
-    "author":10.88,
+    "name":"The Adventure of Huckleberry Finn",
+    "author":"Mark Twain",
     "imgUrlF":"http://localhost:3001/img/3_1.png"
     ,"imgUrlB":"http://localhost:3001/img/3_2.png"
 },
 {"id":4,
-    "name":"Books4",
-    "author":10.88,
+    "name":"The Science Trilogy",
+    "author":"Arthur C. Clarke",
     "imgUrlF":"http://localhost:3001/img/4_1.png",
     "imgUrlB":"http://localhost:3001/img/4_2.png"
 },
 {"id":5,
-    "name":"Books5",
-    "author":10.88,
+    "name":"The Forever Man",
+    "author":"Gordon R. Dickson",
     "imgUrlF":"http://localhost:3001/img/5_1.png",
     "imgUrlB":"http://localhost:3001/img/5_2.png"
 }

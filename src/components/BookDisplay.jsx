@@ -24,17 +24,17 @@ export const BookDisplay = (props)=>{
  
     return (
         <div>
-            <Card className="BookDisplay" onClick={handleShowDialog} > 
+            <Card className="BookDisplay"  > 
                 <Card.Img 
                     src={props.imgUrlF} 
                     variant="top" 
                     height="100%"
                     width="100px"
-                    
+                    onClick={handleShowDialog}
                     style={{objectFit:"cover"}} />
                 <Card.Body>
-                    <div><center> <h3>{props.name}</h3>
-                    <p>Author: {props.author} {isOpen}</p></center></div>
+                    <div><center> <h3 style={{ fontSize: '4em' }}>{props.name}</h3>
+                    <p style={{ fontSize: '3em' }}>Author: {props.author} {isOpen}</p></center></div>
                 </Card.Body>
             </Card>
             
