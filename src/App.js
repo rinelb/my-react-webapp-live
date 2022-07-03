@@ -39,7 +39,7 @@ function App() {
   return (
  
    <div className="APP-PC">
-      <h1>Rinel big</h1>
+       
       <Books/>
       
     </div>
@@ -49,7 +49,7 @@ function App() {
   return (
     
       <div className="APP-Mobile">
-        <h1>Rinel small</h1>
+         
         <Books/>
       </div>
     

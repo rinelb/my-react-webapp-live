@@ -1,31 +1,33 @@
 [
     {"id":1,
-    "name":"Books",
-    "price":10.88,
-    "imgUrl":"http://localhost:3001/img/1_1.png"
+    "name":"Books1",
+    "author":10.88,
+    "imgUrlF":"http://localhost:3001/img/1_1.png",
+    "imgUrlB":"http://localhost:3001/img/1_2.png"
 },
 {"id":2,
-    "name":"not book",
-    "price":10.89,
-    "imgUrl":"http://localhost:3001/img/dates.png"
+    "name":"Books2",
+    "author":10.88,
+    "imgUrlF":"http://localhost:3001/img/2_1.png",
+    "imgUrlB":"http://localhost:3001/img/2_2.png"
 },
 {"id":3,
-    "name":"not book",
-    "price":10.89,
-    "imgUrl":"http://localhost:3001/img/1_1.png"
-},{"id":3,
-    "name":"not book",
-    "price":10.89,
-    "imgUrl":"http://localhost:3001/img/1_1.png"
-},{"id":3,
-    "name":"not book",
-    "price":10.89,
-    "imgUrl":"http://localhost:3001/img/1_1.png"
-},{"id":3,
-    "name":"not book",
-    "price":10.89,
-    "imgUrl":"http://localhost:3001/img/1_1.png"
+    "name":"Books3",
+    "author":10.88,
+    "imgUrlF":"http://localhost:3001/img/3_1.png"
+    ,"imgUrlB":"http://localhost:3001/img/3_2.png"
+},
+{"id":4,
+    "name":"Books4",
+    "author":10.88,
+    "imgUrlF":"http://localhost:3001/img/4_1.png",
+    "imgUrlB":"http://localhost:3001/img/4_2.png"
+},
+{"id":5,
+    "name":"Books5",
+    "author":10.88,
+    "imgUrlF":"http://localhost:3001/img/5_1.png",
+    "imgUrlB":"http://localhost:3001/img/5_2.png"
 }
-
 
 ]
