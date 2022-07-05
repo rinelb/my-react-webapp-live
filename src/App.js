@@ -13,46 +13,62 @@ import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
 
 import Images from './components/book.jpeg';
 import Course from './pages/Course';
+import NavigationMobile from './components/NavigationMobile'
  
 // import Container from 'react-bootstrap' //npm install react-bootstrap bootstrap
  
 function App() {
 
-  // const [width, setWindowWidth] = useState(0)
-  //  useEffect(() => { 
+  const [width, setWindowWidth] = useState(0)
+   useEffect(() => { 
 
-  //    updateDimensions();
+     updateDimensions();
 
-  //    window.addEventListener('resize', updateDimensions);
-  //    return () => 
-  //      window.removeEventListener('resize',updateDimensions);
-  //   }, [])
+     window.addEventListener('resize', updateDimensions);
+     return () => 
+       window.removeEventListener('resize',updateDimensions);
+    }, [])
 
-  //   const updateDimensions = () => {
-  //     const width = window.innerWidth
-  //     setWindowWidth(width)
-  //     console.log("size = " + width)
-    // }
+    const updateDimensions = () => {
+      const width = window.innerWidth
+      setWindowWidth(width)
+      console.log("size = " + width)
+    }
 
-    // const showNav= {
-    //   display: width>200 ? 'flex' : 'none'
-    // }
-    // const showMenuIcon = {
-    //   display: width>200 ? 'none' : 'flex',
-    // }
+    const showNav= {
+      display: width>200 ? 'flex' : 'none'
+    }
+    const showMenuIcon = {
+      display: width>200 ? 'none' : 'flex',
+    }
 
     return (
+      <>{ (width>500) ?
       <> 
         <div>
           <Navigation/>
             <Routes>                
               <Route path='/books'  element={<Books/>} /> 
-              <Route path='/course'  element={<Course/>} />   
+              <Route path='/courses'  element={<Course/>} />   
+              <Route path='/'element={<Home/>} />            
+          </Routes>
+        </div> 
+      </>
+      :
+      <> 
+        <div>
+          <NavigationMobile/>
+            <Routes>                
+              <Route path='/books'  element={<Books/>} /> 
+              <Route path='/courses'  element={<Course/>} />   
               <Route path='/'element={<Home/>} />            
           </Routes>
         </div> 
       </>
 
+
+      }
+      </>
 )
   // if (width>800){  
   // return (

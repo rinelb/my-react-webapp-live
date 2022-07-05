@@ -24,10 +24,10 @@ import Course from '../pages/Course';
                 </NavItem>
                 
               </Nav>
-              <Nav className='ms-auto'>
-              <NavItem className='navbar-right'>
-                <Form className="d-flex" >
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+              <Nav className='ms-auto pull-right'>
+              <NavItem className='  me-1'>
+                <Form className="d-flex  " >
+                    <FormControl className='me-1' type="text"  placeholder="Search" />
                     <Button variant="outline-success">Search</Button>
                 </Form> 
                 </NavItem>
@@ -38,7 +38,7 @@ import Course from '../pages/Course';
         <div>
           <Routes>
             <Route exact path='/books' element={() => <Books />} />
-            <Route exact path='/course' element={() => <Course />} />
+            <Route exact path='/courses' element={() => <Course />} />
             <Route exact path='/' element={() => <Home />} />
             {/* <Route render={function () {
               return <p>Not found</p>
