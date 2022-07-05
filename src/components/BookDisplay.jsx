@@ -36,9 +36,7 @@ export const BookDisplay = (props)=>{
                     <div><center> <h3 style={{ fontSize: '4em' }}>{props.name}</h3>
                     <p style={{ fontSize: '3em' }}>Author: {props.author} {isOpen}</p></center></div>
                 </Card.Body>
-            </Card>
-            
-            {{isOpen} && (
+                {{isOpen} && (
           <dialog
             className="dialog"
             style={{ position: "absolute" }}
@@ -53,6 +51,9 @@ export const BookDisplay = (props)=>{
             />
           </dialog>
         )}
+      </Card>
+            
+            
 
 
 
