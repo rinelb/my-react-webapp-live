@@ -19,8 +19,8 @@ import Course from '../pages/Course';
                   <Nav.Link as={Link} to="/books" >Books</Nav.Link>
                 </NavItem>
               
-                <NavItem eventkey={1} href="/course">
-                  <Nav.Link as={Link} to="/course" >Courses</Nav.Link>
+                <NavItem eventkey={1} href="/courses">
+                  <Nav.Link as={Link} to="/courses" >Courses</Nav.Link>
                 </NavItem>
                 
               </Nav>

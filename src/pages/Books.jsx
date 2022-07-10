@@ -9,8 +9,8 @@ const Books = ()=>{
 
     return(
         <div className="Books">
-            <center><h1 style={{ fontSize: '10em' }}>My Books</h1> 
-            <p style={{ fontSize: '4em' }}>Click on the image to see the back</p></center>
+            <center><h1 style={{ fontSize: '7em' }}>My Books</h1> 
+            <p style={{ fontSize: '2.5em' }}>Click on the image to see the back</p></center>
             <Row md={2} xs={1} lg={3} className="g-3">
                 {bookItems.map(bookItems => (
 

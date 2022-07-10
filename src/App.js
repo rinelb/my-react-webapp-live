@@ -20,6 +20,9 @@ import NavigationMobile from './components/NavigationMobile'
 function App() {
 
   const [width, setWindowWidth] = useState(0)
+  const [mobile, setMobile] = useState(0)
+  const mobileWidth = 1000
+
    useEffect(() => { 
 
      updateDimensions();
@@ -32,25 +35,32 @@ function App() {
     const updateDimensions = () => {
       const width = window.innerWidth
       setWindowWidth(width)
+      if (width>mobileWidth)
+      {
+        setMobile(0)
+      }else{
+        setMobile(1)
+      }
       console.log("size = " + width)
     }
 
     const showNav= {
-      display: width>200 ? 'flex' : 'none'
+      display: width>mobileWidth ? 'flex' : 'none'
+      
     }
     const showMenuIcon = {
-      display: width>200 ? 'none' : 'flex',
+      display: width>mobileWidth ? 'none' : 'flex',
     }
 
     return (
-      <>{ (width>500) ?
+      <>{ (width>mobileWidth) ?
       <> 
         <div>
           <Navigation/>
             <Routes>                
               <Route path='/books'  element={<Books/>} /> 
               <Route path='/courses'  element={<Course/>} />   
-              <Route path='/'element={<Home/>} />            
+              <Route path='/'element={<Home mobile={mobile}/>} />            
           </Routes>
         </div> 
       </>

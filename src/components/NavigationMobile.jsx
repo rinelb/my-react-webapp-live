@@ -13,19 +13,20 @@ import Course from '../pages/Course';
   {[false].map((expand) => (
     <Navbar key={expand} bg="light" expand={expand} className="mb-3">
       <Container fluid>
-        <Navbar.Brand href="#">menu</Navbar.Brand>
+        <Navbar.Brand href="#" >Rinel's World</Navbar.Brand>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
         <Navbar.Offcanvas
           id={`offcanvasNavbar-expand-${expand}`}
           aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
           placement="end"
+          color='white'
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
               Menu ... (not the food kind)
             </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <Offcanvas.Body >
             <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
