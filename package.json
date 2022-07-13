@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "HTTPS=true SSL_CRT_FILE=/etc/letsencrypt/live/rinelb.co.za/fullchain.pem SSL_KEY_FILE=/etc/letsencrypt/live/rinelb.co.za/privkey.pem  react-scripts start",
-     "build": "react-scripts build",
+    "dummy": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

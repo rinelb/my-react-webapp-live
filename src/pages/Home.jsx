@@ -8,7 +8,9 @@ import Space_gif from '../assests/space-gif-space.gif'
 const Home = (props)=>{
 
     return(
+        // PC page
         <>{ (props.mobile ==0)? 
+            <div>
             <body style={{
             background:"black"
             
@@ -33,11 +35,15 @@ const Home = (props)=>{
                   }}/>
                   
                   
+                  
                 </div>
-                 
+                
         </center>
         </body>
+      
+        </div>
         :
+         // mobile page
 
         <body style={{
             background:"black"

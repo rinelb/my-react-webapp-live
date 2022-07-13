@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import Course from '../pages/Course';
+import About from '../pages/About';
 
    class Navigation extends Component {
   render() {
@@ -21,6 +22,9 @@ import Course from '../pages/Course';
               
                 <NavItem eventkey={1} href="/courses">
                   <Nav.Link as={Link} to="/courses" >Courses</Nav.Link>
+                </NavItem>
+                <NavItem eventkey={1} href="/about">
+                  <Nav.Link as={Link} to="/about" >About</Nav.Link>
                 </NavItem>
                 
               </Nav>
@@ -39,6 +43,7 @@ import Course from '../pages/Course';
           <Routes>
             <Route exact path='/books' element={() => <Books />} />
             <Route exact path='/courses' element={() => <Course />} />
+            <Route exact path='/about' element={() => <About />} />
             <Route exact path='/' element={() => <Home />} />
             {/* <Route render={function () {
               return <p>Not found</p>
