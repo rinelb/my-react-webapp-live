@@ -1,0 +1,33 @@
+[
+    {"id":1,
+    "name":"Eldest",
+    "author":"Christorpher Paolini",
+    "imgUrlF":"https://rinelb.co.za:3006/img/1_1.png",
+    "imgUrlB":"https://rinelb.co.za:3006/img/1_2.png"
+},
+{"id":2,
+    "name":"Second Foundation",
+    "author":"Asimov",
+    "imgUrlF":"https://rinelb.co.za:3006/img/2_1.png",
+    "imgUrlB":"https://rinelb.co.za:3006/img/2_2.png"
+},
+{"id":3,
+    "name":"The Adventure of Huckleberry Finn",
+    "author":"Mark Twain",
+    "imgUrlF":"https://rinelb.co.za:3006/img/3_1.png"
+    ,"imgUrlB":"https://rinelb.co.za:3006/img/3_2.png"
+},
+{"id":4,
+    "name":"The Science Trilogy",
+    "author":"Arthur C. Clarke",
+    "imgUrlF":"https://rinelb.co.za:3006/img/4_1.png",
+    "imgUrlB":"https://rinelb.co.za:3006/img/4_2.png"
+},
+{"id":5,
+    "name":"The Forever Man",
+    "author":"Gordon R. Dickson",
+    "imgUrlF":"https://rinelb.co.za:3006/img/5_1.png",
+    "imgUrlB":"https://rinelb.co.za:3006/img/5_2.png"
+}
+
+]

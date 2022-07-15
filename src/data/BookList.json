@@ -1,33 +1,10 @@
 [
-    {"id":1,
-    "name":"Eldest",
-    "author":"Christorpher Paolini",
-    "imgUrlF":"https://rinelb.co.za:3006/img/1_1.png",
-    "imgUrlB":"https://rinelb.co.za:3006/img/1_2.png"
-},
-{"id":2,
-    "name":"Second Foundation",
-    "author":"Asimov",
-    "imgUrlF":"https://rinelb.co.za:3006/img/2_1.png",
-    "imgUrlB":"https://rinelb.co.za:3006/img/2_2.png"
-},
-{"id":3,
-    "name":"The Adventure of Huckleberry Finn",
-    "author":"Mark Twain",
-    "imgUrlF":"https://rinelb.co.za:3006/img/3_1.png"
-    ,"imgUrlB":"https://rinelb.co.za:3006/img/3_2.png"
-},
-{"id":4,
-    "name":"The Science Trilogy",
-    "author":"Arthur C. Clarke",
-    "imgUrlF":"https://rinelb.co.za:3006/img/4_1.png",
-    "imgUrlB":"https://rinelb.co.za:3006/img/4_2.png"
-},
-{"id":5,
-    "name":"The Forever Man",
-    "author":"Gordon R. Dickson",
-    "imgUrlF":"https://rinelb.co.za:3006/img/5_1.png",
-    "imgUrlB":"https://rinelb.co.za:3006/img/5_2.png"
-}
-
-]
+    {"id":1,"name":"The Black Prism","author":"Brent Weeks","imgUrlF":"https://rinelb.co.za:3006/img/7_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/7_2.jpeg"},
+    {"id":2,"name":"The Hitchhiker's Guid to the Galaxy - Trilogy of Four","author":"Douglas Adams","imgUrlF":"https://rinelb.co.za:3006/img/8_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/8_2.jpeg"},
+    {"id":3,"name":"A Crown of Swords ","author":"Robert Jordan","imgUrlF":"https://rinelb.co.za:3006/img/9_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/9_2.jpeg"},
+    {"id":4,"name":"Time and Again","author":"Clifford D. Simak","imgUrlF":"https://rinelb.co.za:3006/img/10_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/10_2.jpeg"},
+    {"id":5,"name":"Grass","author":"Sheri S. Tepper","imgUrlF":"https://rinelb.co.za:3006/img/11_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/11_2.jpeg"},
+    {"id":6,"name":"The Martian","author":"Andy Weir","imgUrlF":"https://rinelb.co.za:3006/img/12_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/12_2.jpeg"},
+    {"id":7,"name":"Beyond the Blue Event Horizon","author":"Ferderik Pohl","imgUrlF":"https://rinelb.co.za:3006/img/13_1.jpeg", "imgUrlB":"https://rinelb.co.za:3006/img/13_2.jpeg"}
+    ]
+    
