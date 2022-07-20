@@ -102,7 +102,7 @@ const Books = ()=>{
     )
     useEffect(
         updateList,
-        [bookDisplaySearch,page]
+        [bookDisplaySearch]
     )
 
     const foundList =(newlist) =>{
@@ -127,12 +127,12 @@ const Books = ()=>{
 
     const minus = ()=>{
         setPage(page-1)
-         
+        updateList() 
 
     }
     const plus = ()=>{
         setPage(page+1)
-         
+        updateList()
 
     }
 
@@ -168,6 +168,14 @@ const Books = ()=>{
 
 
     }
+
+
+    const handleKeyPressPage  = (target)=> {
+        if(target.charCode==13){
+            updateList();    
+        } 
+      }
+
     const handleKeyPress = (target)=> {
         if(target.charCode==13){
             search(target);    
@@ -180,7 +188,11 @@ const Books = ()=>{
         <div className="Books">
             <center><h1 style={{ fontSize: '4em' }}>My Books</h1> 
             <p style={{ fontSize: '2em' }}>Click on the image to see the back</p> 
-            <label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
+            <label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}}
+             onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onKeyPress={handleKeyPressPage}  
+             onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button>
+             <label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> 
+             <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
             <br/> 
             { (rebel ==0)? <></>:<center><p>You rebel you :P trying to break my code, lol I put some error correcting code, so please enter page number within the range please :)</p></center>}
              
@@ -233,7 +245,7 @@ const Books = ()=>{
                 ))} 
            </Row>
            <br/><br/>
-           <center><label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
+           <center><label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page} onKeyPress={handleKeyPressPage}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
         </div>
        
         
