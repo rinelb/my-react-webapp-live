@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {Button, Col,Row, Form,FormControl} from 'react-bootstrap' 
+import Table from 'react-bootstrap/Table';
 import bookItems from "../data/BookList.json"
 // import cards from '/components/BookList'
 import Temp from '../components/BookDisplay'
@@ -33,7 +34,7 @@ const Books = ()=>{
     // }
     let countBook = 0
     
-    if ((page >maxPageNumber) || (page<1)){setRebel(1)}else{setRebel(0)}
+    if ((page >maxPageNumber && maxPageNumber!=0) || (page<1)){setRebel(1)}else{setRebel(0)}
     bookDisplaySearch.map(items => {
                 countBook = countBook +1
                 if ((countBook>= (pageMinBook)) && (countBook < (pageMinBook +bookAdd)))  {
@@ -111,6 +112,7 @@ const Books = ()=>{
 
     const search=(event)=>{
         event.preventDefault();
+        if (find.val.toString() != ""){
         setBookDisplayList([])
         console.log("running search")
         let tempArray =[]
@@ -132,6 +134,8 @@ const Books = ()=>{
         setPage(1)
         foundList(tempArray)
         updateList()
+    }else 
+    {setShowfind(0)}
          
 
 
@@ -158,13 +162,22 @@ const Books = ()=>{
             </Form> 
             {(showfind==1)?
             <>
-            <Row md={1} xs={1} lg={1}>
+             <Table striped bordered hover size="sm"  style ={{width: '30em', textAlign: 'left'}}>
+            <thead>
+                <tr>
+                 
+                <th>Book Name</th>
+                <th>Authur</th> 
+                </tr>
+            </thead>
+            <tbody>
             {bookDisplaySearch.map(bookItems => (
-
-            <Col  key={bookItems.id}> <b>{bookItems.name}</b> : {bookItems.author}</Col>
-            
+                    <tr>
+                    <td>{bookItems.name}</td> <td>{bookItems.author}</td>
+                    </tr>
             ))}
-            </Row> 
+            </tbody>
+            </Table>
             </>:
             <></>}
             </center>
