@@ -5,30 +5,39 @@ import bookItems from "../data/BookList.json"
 import Temp from '../components/BookDisplay'
 
 const bookNumber = 6
-const maxPageNumber = Math.floor(bookItems.length /6)
-const maxBooks = bookItems.length
+// const maxPageNumber = Math.floor(bookItems.length /6)
+// const maxBooks = bookItems.length
 const Books = ()=>{
     const [page, setPage] = useState(1)
     const [bookDisplayList, setBookDisplayList] = useState([])
+    const [bookDisplaySearch, setBookDisplaySearch] = useState(bookItems)
     const [rebel, setRebel] = useState(0)
     const [find, setFind] = useState("")
     const [showfind,setShowfind ] = useState(0)
+    const [maxBooks,setMaxBooks ] = useState(bookItems.length)
+    const [maxPageNumber,setMaxPageNumber ] = useState(Math.floor(bookItems.length /6))
+
 
  const updateList =   () => {
-    const maxBookIndex = page*bookNumber
+    
     
     setBookDisplayList([])
     let tempArray =[]
-    let bookAdd
-    if (maxBookIndex > maxBooks){
-         bookAdd = maxBooks - (maxPageNumber*6) 
-    }else{
-        bookAdd = 6
-    }
-
+    const bookAdd = 6
+    const pageMinBook = (page -1)*bookNumber
+    console.log("pageMinBook value is "+pageMinBook)
+    // if (maxBookIndex > maxBooks){
+    //      bookAdd = maxBooks - (maxPageNumber*6) 
+    // }else{
+    //     bookAdd = 6
+    // }
+    let countBook = 0
+    
     if ((page >maxPageNumber) || (page<1)){setRebel(1)}else{setRebel(0)}
-    bookItems.map(items => {
-                if ((items.id >= (maxBookIndex)) && (items.id < (maxBookIndex +bookAdd)))  {
+    bookDisplaySearch.map(items => {
+                countBook = countBook +1
+                if ((countBook>= (pageMinBook)) && (countBook < (pageMinBook +bookAdd)))  {
+
                     tempArray.push(items)
                 }
 
@@ -58,21 +67,45 @@ const Books = ()=>{
     
         } 
 
+        
+
     useEffect(
        runOnce,
         []
     )
+    useEffect(
+        updateList,
+        [bookDisplaySearch,page]
+    )
 
+    const foundList =(newlist) =>{
+       
+        setPage(1);
+        let tempArray =[]
+         
+         
+        newlist.map(items => {
+                    if ((items.id >= 1) && (items.id < 7))  {
+                        tempArray.push(items)
+                    }
+    
+                }
+    
+            )
+        setBookDisplayList(tempArray)
+    
+        } 
+   
 
 
     const minus = ()=>{
         setPage(page-1)
-        updateList()
+         
 
     }
     const plus = ()=>{
         setPage(page+1)
-        updateList()
+         
 
     }
 
@@ -89,10 +122,18 @@ const Books = ()=>{
             if ((tempStringName.includes(find.val.toString().toLowerCase())) || (tempStringAuthur.includes(find.val.toString().toLowerCase())))  {
                 tempArray.push(items)
                 setShowfind(1)
+                console.log("found")
             }
 
         })
-        setBookDisplayList(tempArray)
+        setBookDisplaySearch(tempArray)
+        setMaxPageNumber(Math.floor(tempArray.length /6))
+        setMaxBooks(tempArray.length)
+        setPage(1)
+        foundList(tempArray)
+        updateList()
+         
+
 
     }
     const handleKeyPress = (target)=> {
@@ -118,9 +159,9 @@ const Books = ()=>{
             {(showfind==1)?
             <>
             <Row md={1} xs={1} lg={1}>
-            {bookDisplayList.map(bookItems => (
+            {bookDisplaySearch.map(bookItems => (
 
-            <Col  key={bookItems.id}> {bookItems.name} : {bookItems.author}</Col>
+            <Col  key={bookItems.id}> <b>{bookItems.name}</b> : {bookItems.author}</Col>
             
             ))}
             </Row> 
@@ -134,6 +175,8 @@ const Books = ()=>{
                     <Col  key={bookItems.id}><Temp imgUrlF={bookItems.imgUrlF} imgUrlB={bookItems.imgUrlB} name={bookItems.name} author={bookItems.author}/></Col>
                 ))} 
            </Row>
+           <br/><br/>
+           <center><label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
         </div>
        
         
