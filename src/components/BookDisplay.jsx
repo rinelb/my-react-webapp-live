@@ -23,7 +23,7 @@ export const BookDisplay = (props)=>{
   };
  
     return (
-        <div style={{width: "50em"}}>
+        <div style={{width: "30em"}}>
             <Card className="BookDisplay"  > 
                 <Card.Img 
                     src={props.imgUrlF} 
