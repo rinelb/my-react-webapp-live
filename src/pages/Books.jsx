@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import {Button, Col,Row} from 'react-bootstrap' 
+import {Button, Col,Row, Form,FormControl} from 'react-bootstrap' 
 import bookItems from "../data/BookList.json"
 // import cards from '/components/BookList'
 import Temp from '../components/BookDisplay'
@@ -11,6 +11,8 @@ const Books = ()=>{
     const [page, setPage] = useState(1)
     const [bookDisplayList, setBookDisplayList] = useState([])
     const [rebel, setRebel] = useState(0)
+    const [find, setFind] = useState("")
+    const [showfind,setShowfind ] = useState(0)
 
  const updateList =   () => {
     const maxBookIndex = page*bookNumber
@@ -74,6 +76,30 @@ const Books = ()=>{
 
     }
 
+    const search=(event)=>{
+        event.preventDefault();
+        setBookDisplayList([])
+        console.log("running search")
+        let tempArray =[]
+        console.log(find.val.toString())
+        bookItems.map(items => {
+            let tempStringName = items.name.toString().toLowerCase()
+            let tempStringAuthur = items.author.toString().toLowerCase()
+            
+            if ((tempStringName.includes(find.val.toString().toLowerCase())) || (tempStringAuthur.includes(find.val.toString().toLowerCase())))  {
+                tempArray.push(items)
+                setShowfind(1)
+            }
+
+        })
+        setBookDisplayList(tempArray)
+
+    }
+    const handleKeyPress = (target)=> {
+        if(target.charCode==13){
+            search(target);    
+        } 
+      }
     
 
     
@@ -84,6 +110,23 @@ const Books = ()=>{
             <label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
             <br/> 
             { (rebel ==0)? <></>:<center><p>You rebel you :P trying to break my code, lol I put some error correcting code, so please enter page number within the range please :)</p></center>}
+            <br/>
+            <center><Form className="d-flex" style={{width:"20em"}}  onKeyPress={handleKeyPress}>
+                    <FormControl className='me-1' type="text"  placeholder="Search" onChange={e => setFind({ val: e.target.value })}/>
+                    <Button variant="outline-success" onClick={search}>Search</Button>
+            </Form> 
+            {(showfind==1)?
+            <>
+            <Row md={1} xs={1} lg={1}>
+            {bookDisplayList.map(bookItems => (
+
+            <Col  key={bookItems.id}> {bookItems.name} : {bookItems.author}</Col>
+            
+            ))}
+            </Row> 
+            </>:
+            <></>}
+            </center>
             <br/>
             <Row md={2} xs={1} lg={3} className="g-3">
                 {bookDisplayList.map(bookItems => (
