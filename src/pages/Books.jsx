@@ -226,10 +226,10 @@ const Books = ()=>{
             <></>}
             </center>
             <br/>
-            <Row md={2} xs={1} lg={3} className="g-3">
+            <Row md={2} xs={1} lg={3} className="g-3 align-items-center"  >
                 {bookDisplayList.map(bookItems => (
 
-                    <Col  key={bookItems.id}><Temp imgUrlF={bookItems.imgUrlF} imgUrlB={bookItems.imgUrlB} name={bookItems.name} author={bookItems.author}/></Col>
+                    <Col className="text-center text-md-right" key={bookItems.id}><Temp imgUrlF={bookItems.imgUrlF} imgUrlB={bookItems.imgUrlB} name={bookItems.name} author={bookItems.author}/></Col>
                 ))} 
            </Row>
            <br/><br/>

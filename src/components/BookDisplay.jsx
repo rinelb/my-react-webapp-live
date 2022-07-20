@@ -50,7 +50,7 @@ export const BookDisplay = (props)=>{
  
     return (
      <> { (mobile==0)?
-        <div style={{width: "25em"}}>
+        <center><div style={{width: "25em"}}>
             <Card className="BookDisplay"  > 
                 <Card.Img 
                     src={props.imgUrlF} 
@@ -85,7 +85,7 @@ export const BookDisplay = (props)=>{
 
             {/* <img src={props.imgUrl}/>
             <h1>temp</h1> */}
-        </div>
+        </div></center>
         :
         <div >
             <Card className="BookDisplay"  > 
