@@ -155,11 +155,11 @@ const Books = ()=>{
             <label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}} onClick={plus} >&gt;</label> <label style={{ fontSize: '1.5em',padding: "10px" }}> Max page = {maxPageNumber}</label></center>
             <br/> 
             { (rebel ==0)? <></>:<center><p>You rebel you :P trying to break my code, lol I put some error correcting code, so please enter page number within the range please :)</p></center>}
-            <br/>
-            <center><Form className="d-flex" style={{width:"20em"}}  onKeyPress={handleKeyPress}>
+             
+            <center><Form className="d-flex" style={{width:"17em"}}  onKeyPress={handleKeyPress}>
                     <FormControl className='me-1' type="text"  placeholder="Search" onChange={e => setFind({ val: e.target.value })}/>
                     <Button variant="outline-success" onClick={search}>Search</Button>
-            </Form> 
+            </Form> <br/>
             {(showfind==1)?
             <>
              <Table striped bordered hover size="sm"  style ={{width: '30em', textAlign: 'left'}}>
