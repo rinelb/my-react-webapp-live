@@ -19,6 +19,32 @@ const Books = ()=>{
     const [maxPageNumber,setMaxPageNumber ] = useState(Math.floor(bookItems.length /6))
 
 
+    const [width, setWindowWidth] = useState(0)
+    const [mobile, setMobile] = useState(0)
+    const mobileWidth = 1000
+  
+     useEffect(() => { 
+  
+       updateDimensions();
+  
+       window.addEventListener('resize', updateDimensions);
+       return () => 
+         window.removeEventListener('resize',updateDimensions);
+      }, [])
+  
+      const updateDimensions = () => {
+        const width = window.innerWidth
+        setWindowWidth(width)
+        if (width>mobileWidth)
+        {
+          setMobile(0)
+        }else{
+          setMobile(1)
+        }
+        console.log("size = " + width)
+      }
+
+
  const updateList =   () => {
     
     
@@ -156,13 +182,13 @@ const Books = ()=>{
             <br/> 
             { (rebel ==0)? <></>:<center><p>You rebel you :P trying to break my code, lol I put some error correcting code, so please enter page number within the range please :)</p></center>}
              
-            <center><Form className="d-flex" style={{width:"17em"}}  onKeyPress={handleKeyPress}>
+            <center><Form className="d-flex" style={{width:"26em"}}  onKeyPress={handleKeyPress}>
                     <FormControl className='me-1' type="text"  placeholder="Search" onChange={e => setFind({ val: e.target.value })}/>
                     <Button variant="outline-success" onClick={search}>Search</Button>
             </Form> <br/>
             {(showfind==1)?
             <>
-             <Table striped bordered hover size="sm"  style ={{width: '30em', textAlign: 'left'}}>
+             { (mobile==1) ?<Table striped bordered hover size="sm"  style ={{width: '20em', textAlign: 'left'}}>
             <thead>
                 <tr>
                  
@@ -177,7 +203,23 @@ const Books = ()=>{
                     </tr>
             ))}
             </tbody>
-            </Table>
+            </Table>:
+            <Table striped bordered hover size="sm"  style ={{width: '30em', textAlign: 'left'}}>
+            <thead>
+                <tr>
+                 
+                <th>Book Name</th>
+                <th>Authur</th> 
+                </tr>
+            </thead>
+            <tbody>
+            {bookDisplaySearch.map(bookItems => (
+                    <tr>
+                    <td>{bookItems.name}</td> <td>{bookItems.author}</td>
+                    </tr>
+            ))}
+            </tbody>
+            </Table>}
             </>:
             <></>}
             </center>
