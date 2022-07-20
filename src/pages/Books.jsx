@@ -16,7 +16,7 @@ const Books = ()=>{
     const [find, setFind] = useState("")
     const [showfind,setShowfind ] = useState(0)
     const [maxBooks,setMaxBooks ] = useState(bookItems.length)
-    const [maxPageNumber,setMaxPageNumber ] = useState(Math.floor(bookItems.length /6))
+    const [maxPageNumber,setMaxPageNumber ] = useState(Math.floor(bookItems.length /6)+1)
 
 
     const [width, setWindowWidth] = useState(0)
@@ -155,13 +155,15 @@ const Books = ()=>{
 
         })
         setBookDisplaySearch(tempArray)
-        setMaxPageNumber(Math.floor(tempArray.length /6))
+        setMaxPageNumber(Math.floor(tempArray.length /6)+1)
         setMaxBooks(tempArray.length)
         setPage(1)
         foundList(tempArray)
         updateList()
     }else 
-    {setShowfind(0)}
+    {setShowfind(0)
+    setBookDisplaySearch(bookItems)
+    }
          
 
 
