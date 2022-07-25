@@ -76,6 +76,38 @@ const Books = ()=>{
 
     }
 
+
+    const updateListValue =   (value) => {
+    
+    
+        setBookDisplayList([])
+        let tempArray =[]
+        const bookAdd = 6
+        const pageMinBook = (value -1)*bookNumber
+        console.log("pageMinBook value is "+pageMinBook)
+        // if (maxBookIndex > maxBooks){
+        //      bookAdd = maxBooks - (maxPageNumber*6) 
+        // }else{
+        //     bookAdd = 6
+        // }
+        let countBook = 0
+        
+        if ((value >maxPageNumber && maxPageNumber!=0) || (value<1)){setRebel(1)}else{setRebel(0)}
+        bookDisplaySearch.map(items => {
+                    countBook = countBook +1
+                    if ((countBook>= (pageMinBook)) && (countBook < (pageMinBook +bookAdd)))  {
+    
+                        tempArray.push(items)
+                    }
+    
+                }
+    
+            )
+        setBookDisplayList(tempArray)
+    
+    
+        }
+
     const runOnce =() =>{
        
         setPage(1);
@@ -127,12 +159,12 @@ const Books = ()=>{
 
     const minus = ()=>{
         setPage(page-1)
-        updateList() 
+        updateListValue(page-1) 
 
     }
     const plus = ()=>{
         setPage(page+1)
-        updateList()
+        updateListValue(page+1)
 
     }
 
