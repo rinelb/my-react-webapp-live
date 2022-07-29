@@ -1,14 +1,14 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {Button, Col,Row, Form,FormControl} from 'react-bootstrap' 
 import Table from 'react-bootstrap/Table';
-import bookItems from "../data/BookList.json"
+import bookItems from "../data/Knowledge.json"
 // import cards from '/components/BookList'
 import Temp from '../components/BookDisplay'
 
 const bookNumber = 6
 // const maxPageNumber = Math.floor(bookItems.length /6)
 // const maxBooks = bookItems.length
-const Books = ()=>{
+const AOL = ()=>{
     const [page, setPage] = useState(1)
     const [bookDisplayList, setBookDisplayList] = useState([])
     const [bookDisplaySearch, setBookDisplaySearch] = useState(bookItems)
@@ -177,9 +177,8 @@ const Books = ()=>{
         console.log(find.val.toString())
         bookItems.map(items => {
             let tempStringName = items.name.toString().toLowerCase()
-            let tempStringAuthur = items.author.toString().toLowerCase()
             
-            if ((tempStringName.includes(find.val.toString().toLowerCase())) || (tempStringAuthur.includes(find.val.toString().toLowerCase())))  {
+            if ((tempStringName.includes(find.val.toString().toLowerCase())) )  {
                 tempArray.push(items)
                 setShowfind(1)
                 console.log("found")
@@ -240,13 +239,12 @@ const Books = ()=>{
                 <tr>
                  
                 <th>Book Name</th>
-                <th>Authur</th> 
                 </tr>
             </thead>
             <tbody>
             {bookDisplaySearch.map(bookItems => (
                     <tr>
-                    <td>{bookItems.name}</td> <td>{bookItems.author}</td>
+                    <td>{bookItems.name}</td> 
                     </tr>
             ))}
             </tbody>
@@ -256,13 +254,12 @@ const Books = ()=>{
                 <tr>
                  
                 <th>Book Name</th>
-                <th>Authur</th> 
                 </tr>
             </thead>
             <tbody>
             {bookDisplaySearch.map(bookItems => (
                     <tr>
-                    <td>{bookItems.name}</td> <td>{bookItems.author}</td>
+                    <td>{bookItems.name}</td> 
                     </tr>
             ))}
             </tbody>
@@ -274,7 +271,7 @@ const Books = ()=>{
             <Row md={2} xs={1} lg={3} className="g-3 align-items-center"  >
                 {bookDisplayList.map(bookItems => (
 
-                    <Col className="text-center text-md-right" key={bookItems.id}><Temp imgUrlF={bookItems.imgUrlF} imgUrlB={bookItems.imgUrlB} name={bookItems.name} author={bookItems.author}/></Col>
+                    <Col className="text-center text-md-right" key={bookItems.id}><Temp imgUrlF={bookItems.imgUrlF} imgUrlB={bookItems.imgUrlB} name={bookItems.name} /></Col>
                 ))} 
            </Row>
            <br/><br/>
@@ -287,4 +284,4 @@ const Books = ()=>{
 
 }
 
-export default Books
+export default AOL

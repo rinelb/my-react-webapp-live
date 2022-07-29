@@ -15,6 +15,7 @@ import Images from './components/book.jpeg';
 import Course from './pages/Course';
 import NavigationMobile from './components/NavigationMobile'
 import About from './pages/About';
+import AOL from './pages/AOL';
  
 // import Container from 'react-bootstrap' //npm install react-bootstrap bootstrap
  
@@ -62,6 +63,7 @@ function App() {
               <Route path='/books'  element={<Books/>} /> 
               <Route path='/courses'  element={<Course/>} />   
               <Route path='/about'  element={<About/>} /> 
+              <Route path='/aol'  element={<AOL/>} /> 
               <Route path='/'element={<Home mobile={mobile}/>} />            
           </Routes>
         </div> 
@@ -74,6 +76,7 @@ function App() {
               <Route path='/books'  element={<Books/>} /> 
               <Route path='/courses'  element={<Course/>} />   
               <Route path='/about'  element={<About/>} /> 
+              <Route path='/aol'  element={<AOL/>} /> 
               <Route path='/'element={<Home/>} />            
           </Routes>
         </div> 
