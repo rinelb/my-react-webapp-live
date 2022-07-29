@@ -3,7 +3,7 @@ import {Button, Col,Row, Form,FormControl} from 'react-bootstrap'
 import Table from 'react-bootstrap/Table';
 import bookItems from "../data/Knowledge.json"
 // import cards from '/components/BookList'
-import Temp from '../components/BookDisplay'
+import Temp from '../components/AOLDisplay'
 
 const bookNumber = 6
 // const maxPageNumber = Math.floor(bookItems.length /6)
@@ -218,8 +218,7 @@ const AOL = ()=>{
     
     return(
         <div className="Books">
-            <center><h1 style={{ fontSize: '4em' }}>My Books</h1> 
-            <p style={{ fontSize: '2em' }}>Click on the image to see the back</p> 
+            <center><h1 style={{ fontSize: '4em' }}>AOL Materials</h1>  
             <label style={{ fontSize: '1.5em', padding: "10px" }}>Page</label><label style={{ fontSize: '1.5em', padding: "10px" ,color:"blue"}}
              onClick={minus} >&lt;</label> <input  style={{width:"50px",height:"50px",fontSize: '2em' }} type="number"   value={page}  onKeyPress={handleKeyPressPage}  
              onChange={(event) => { setPage(event.target.value) }} /> <Button variant="primary" style={{height:"50px", verticalAlign:"top"}} onClick={updateList}><b>load</b></Button>
@@ -238,7 +237,7 @@ const AOL = ()=>{
             <thead>
                 <tr>
                  
-                <th>Book Name</th>
+                <th>Material Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -253,7 +252,7 @@ const AOL = ()=>{
             <thead>
                 <tr>
                  
-                <th>Book Name</th>
+                <th>Material Name</th>
                 </tr>
             </thead>
             <tbody>

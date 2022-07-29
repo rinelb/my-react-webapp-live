@@ -22,7 +22,7 @@ import AOL from '../pages/AOL';
                 </NavItem>
 
                 <NavItem eventkey={1} href="/aol">
-                  <Nav.Link as={Link} to="/about" >AOL</Nav.Link>
+                  <Nav.Link as={Link} to="/aol" >AOL</Nav.Link>
                 </NavItem>
               
                 <NavItem eventkey={1} href="/courses">
