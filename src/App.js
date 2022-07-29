@@ -16,6 +16,7 @@ import Course from './pages/Course';
 import NavigationMobile from './components/NavigationMobile'
 import About from './pages/About';
 import AOL from './pages/AOL';
+import Sanskrit  from './pages/Sanskrit';
  
 // import Container from 'react-bootstrap' //npm install react-bootstrap bootstrap
  
@@ -61,7 +62,8 @@ function App() {
           <Navigation/>
             <Routes>                
               <Route path='/books'  element={<Books/>} /> 
-              <Route path='/courses'  element={<Course/>} />   
+              <Route path='/courses'  element={<Course/>} /> 
+              <Route path='/sanskrit'  element={<Sanskrit/>} />   
               <Route path='/about'  element={<About/>} /> 
               <Route path='/aol'  element={<AOL/>} /> 
               <Route path='/'element={<Home mobile={mobile}/>} />            
@@ -74,7 +76,8 @@ function App() {
           <NavigationMobile/>
             <Routes>                
               <Route path='/books'  element={<Books/>} /> 
-              <Route path='/courses'  element={<Course/>} />   
+              <Route path='/courses'  element={<Course/>} />  
+              <Route path='/sanskrit'  element={<Sanskrit/>} />  
               <Route path='/about'  element={<About/>} /> 
               <Route path='/aol'  element={<AOL/>} /> 
               <Route path='/'element={<Home/>} />            

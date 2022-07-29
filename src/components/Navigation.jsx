@@ -7,6 +7,7 @@ import Home from '../pages/Home';
 import Course from '../pages/Course';
 import About from '../pages/About';
 import AOL from '../pages/AOL';
+import Sanskrit  from '../pages/Sanskrit';
 
    class Navigation extends Component {
   render() {
@@ -23,6 +24,10 @@ import AOL from '../pages/AOL';
 
                 <NavItem eventkey={1} href="/aol">
                   <Nav.Link as={Link} to="/aol" >AOL</Nav.Link>
+                </NavItem>
+
+                <NavItem eventkey={1} href="/sanskrit">
+                  <Nav.Link as={Link} to="/sanskrit" >Sanskrit</Nav.Link>
                 </NavItem>
               
                 <NavItem eventkey={1} href="/courses">
@@ -48,6 +53,7 @@ import AOL from '../pages/AOL';
           <Routes>
             <Route exact path='/books' element={() => <Books />} />
             <Route exact path='/courses' element={() => <Course />} />
+            <Route exact path='/sanskrit' element={() => <Sanskrit />} />
             <Route exact path='/about' element={() => <About />} />
             <Route exact path='/aol' element={() => <AOL />} />
             <Route exact path='/' element={() => <Home />} />

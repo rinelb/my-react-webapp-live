@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Home from '../pages/Home';
 import Course from '../pages/Course';
+import Sanskrit  from '../pages/Sanskrit';
 
    class NavigationMobile extends Component {
   render() {
@@ -31,6 +32,7 @@ import Course from '../pages/Course';
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
               <Nav.Link href="/courses">Courses</Nav.Link>
+              <Nav.Link href="/sanskrit">Sanskrit</Nav.Link>
               <Nav.Link href="/aol">AOL</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <NavDropdown
