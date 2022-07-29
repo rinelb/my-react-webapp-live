@@ -14,8 +14,9 @@ const Sanskrit = ()=>{
 
     const [width, setWindowWidth] = useState(0)
     const [mobile, setMobile] = useState(0)
-    const mobileWidth = 1000
-    const temp =  Sanscript.t('', 'hk', 'devanagari')
+    const [word, setWord] = useState("")
+    const [outputWord, setOutputWord] = useState("")
+    const mobileWidth = 1000 
 
     // const temp1 = Sanscript.t()
   
@@ -55,43 +56,42 @@ const Sanskrit = ()=>{
        runOnce,
         []
     )
-    // useEffect(
-    //     updateList,
-    //     [bookDisplaySearch]
-    // )
- 
-   
- 
-
     
-         
+    //output the sanskrit word
+    // useEffect(
+    //      updateSankrit,
+    //     [word]
+    // )
 
- 
+    const updateSankrit = (event)=>{
+        setOutputWord(Sanscript.t(event.target.value, 'hk', 'devanagari'))
 
-
-    const handleKeyPressPage  = (target)=> {
+    }
+     const handleKeyPressPage  = (target)=> {
         if(target.charCode==13){
             
         } 
       }
- 
 
-    
     return(
          
             <>
-            
+            <center>
+             <Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
+                     <FormControl className="text-center" type="text" style={{alignContent:"middle"}} placeholder="Enter Word or Sentance" onChange={updateSankrit}/>
+                </Form> <br></br>
+                <h3>{outputWord}</h3>
+
+                <hr></hr>
+            </center>
              { (mobile==1) ?
              <>
              <center><h1>Sanskrit Mapping Code</h1><br/><br/></center>
             <Container>     
-                    <Row md={2} xs={2} lg={2} className="g-2  align-items-center"  >
+                    <Row md={3} xs={3} lg={3} className="g-2  align-items-center"  >
                         {SanskritLetter.map(letter => (
-                            
-                             
                                 <Col className="text-center text-md-right bg-light" key={letter.id}><h1> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter} </h1></Col> 
-
-                        ))} 
+                         ))} 
                 </Row>
            </Container>
             </> 
