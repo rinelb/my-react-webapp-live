@@ -77,6 +77,7 @@ const Sanskrit = ()=>{
          
             <>
             <center>
+                <br></br>
              <Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
                      <FormControl className="text-center" type="text" style={{alignContent:"middle"}} placeholder="Enter Word or Sentance" onChange={updateSankrit}/>
                 </Form> <br></br>
