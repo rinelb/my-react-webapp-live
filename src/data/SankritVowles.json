@@ -1,0 +1,20 @@
+[
+    
+    {"id":1,"letter":"a"},
+    {"id":2,"letter":"A"},
+    {"id":3,"letter":"i"},
+    {"id":4,"letter":"I"},
+    {"id":5,"letter":"u"},
+    {"id":6,"letter":"U"},
+    {"id":7,"letter":"R"},
+    {"id":8,"letter":"RR"},
+    {"id":9,"letter":"lR"},
+    {"id":10,"letter":"lRR"},
+    {"id":11,"letter":"è"},
+    {"id":12,"letter":"e"},
+    {"id":13,"letter":"ai"},
+    {"id":14,"letter":"ò"},
+    {"id":15,"letter":"o"},
+    {"id":16,"letter":"au"}
+  
+    ]
