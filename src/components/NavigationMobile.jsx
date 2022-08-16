@@ -33,6 +33,7 @@ import Sanskrit  from '../pages/Sanskrit';
               <Nav.Link href="/books">Books</Nav.Link>
               <Nav.Link href="/courses">Courses</Nav.Link>
               <Nav.Link href="/sanskrit">Sanskrit</Nav.Link>
+              <Nav.Link href="/learnSanskrit">Learn Sanskrit</Nav.Link>
               <Nav.Link href="/aol">AOL</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <NavDropdown

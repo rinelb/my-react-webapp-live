@@ -24,11 +24,13 @@ const Sanskrit = ()=>{
     const [knowledge, setKnowledge] = useState("")
     const [meaning, setMeaning] = useState("")
     const [postId, setPostId] = useState("")
+    const [sentresult,setSentresult] = useState("")
 
     const [mobile, setMobile] = useState(0)
     const [addWord, setAddWord] = useState(false)
     const [wordRaw, setWordRaw] = useState("")
     const [outputWord, setOutputWord] = useState("")
+    const [outputWordReverse, setOutputWordReverse] = useState("")
     const mobileWidth = 1000 
 
     // const temp1 = Sanscript.t()
@@ -78,47 +80,37 @@ const Sanskrit = ()=>{
 
     const updateSankrit = (event)=>{
         setOutputWord(Sanscript.t(event.target.value, 'hk', 'devanagari'))
+        
         setWordRaw(event.target.value)
 
     }
 
+    
+    const checking_sankrit = (event)=>{
+      setOutputWordReverse(Sanscript.t(event.target.value, 'devanagari', 'hk'))
+       
+
+  }
 
 // POST /sanskrit/posting HTTP/1.1
 // Host: 188.166.24.68
 // Content-Type: application/json
 // Content-Length: 98
     const sendData = ()=>{
-      const stringValue = '{"mean":"'+meaning+'","word":"'+wordRaw+'","has":"n","audio":"","sloka":"'+sloka+'","know":"'+knowledge+'","phonic":"'+phonic+'"}'
+      let stringValue =""
+      let actualSent = false
+      if (outputWordReverse==""){
+      
+         stringValue = '{"mean":"'+meaning+'","word":"'+wordRaw+'","has":"n","audio":"","sloka":"'+sloka+'","know":"'+knowledge+'","phonic":"'+phonic+'"}'
+      }else{
+        actualSent = true
+         stringValue = '{"mean":"'+meaning+'","word":"'+outputWordReverse+'","has":"n","audio":"","sloka":"'+sloka+'","know":"'+knowledge+'","phonic":"'+phonic+'"}'
+     
+
+      }
       const jsonString = JSON.parse(stringValue)
       console.log(jsonString)
-   //       const requestOptions = {
-   //       method: 'POST',
-   //       headers: { 'Content-Type': 'application/json' },
-   //       headers: { 'Cache-Control': 'no-cache' },
-   //       body: stringValue//JSON.stringify(stringValue)
-   //   };
-   //   fetch('http://188.166.24.68:8080/sanskrit/posting', requestOptions)
-   //       .then(response => response.json())
-   //       .then(data => setPostId(data.id));
-
-
-         // fetch('http://188.166.24.68:8080/sanskrit/posting', {
-         //    method: 'POST',
-         //    mode: 'no-cors',
-         //    body: jsonString,
-         //    headers: {
-         //       'Accept': 'application/json',
-         //      'Content-Type': 'application/json'
-         //    },
-         //  })
-         //     .then((response) => response.json())
-         //     .then((data) => {
-         //        console.log(data);
-         //        // Handle data
-         //     })
-         //     .catch((err) => {
-         //        console.log(err.message);
-         //     });
+   
 
              request
              .post('http://188.166.24.68:8080/sanskrit/posting')
@@ -126,9 +118,36 @@ const Sanskrit = ()=>{
              .send(jsonString)
              .end(function(err, res){
              console.log(res.text);
-             });  
+             if (actualSent){
+               setSentresult(Sanscript.t( wordRaw,  'hk','devanagari')+" was sent")
+             }else{
+              setSentresult(Sanscript.t( outputWordReverse,  'hk','devanagari')+" was sent")
+             }
+            });  
+
+    
     
   }
+
+  const getHttp = ()=>{
+   const stringValue = '{"mean":"'+meaning+'","word":"'+wordRaw+'","has":"n","audio":"","sloka":"'+sloka+'","know":"'+knowledge+'","phonic":"'+phonic+'"}'
+   const jsonString = JSON.parse(stringValue)
+   console.log(jsonString)
+
+
+          request
+          .get('http://188.166.24.68:8080/sanskrit/baa')
+          .end(function(err, res){
+          console.log(res.text);
+          });  
+
+       
+      
+ 
+}
+
+
+
 
 
 
@@ -146,25 +165,38 @@ const Sanskrit = ()=>{
          // 👇️ passed function to setState 
        };
 
+       const clear_form = () => {
+       
+      };
+
 
     return(
          
             <>
             <center>
-            <br/><br/>
+            {/* <Button onClick={ getHttp }>test Get</Button>
+                <br/><br/>
+            <br/><br/> */}
                <Button onClick={ toggleIsLoading }>Add Word/Sentence</Button>
                 <br/><br/>
                 {(addWord)?
                 <>
-                      <label >Create Word <Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
+                      <label >Create the word :<Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
                               <FormControl className="text-center" type="text" 
                               style={{alignContent:"middle"}} placeholder="Create devanagari" 
-                              onChange={updateSankrit}/>
-                        </Form> </label> <br></br><br></br>
-                        {/* <h5>{outputWord}</h5>  */}
-                        <label >Devanagari<Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
+                              onChange={updateSankrit}/><br></br></Form></label> &nbsp;or &nbsp; 
+
+                        <label >Devanagari Directly: <Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
+                              <FormControl className="text-center" type="text" style={{alignContent:"middle"}} placeholder="e.g. भूर्भुवः" onChange={checking_sankrit}/>
+                              </Form></label><br></br>
+                         
+                        <br></br>
+
+                         <h5>{outputWord}</h5>  
+                        {/* <label >Devanagari<Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
                               <FormControl className="text-center" type="text" style={{alignContent:"middle"}} placeholder={outputWord} onChange={dummy}/>
-                        </Form> </label> <br></br><br></br>
+                        </Form> </label> <br></br><br></br> */}
+
 
     
 
@@ -182,8 +214,9 @@ const Sanskrit = ()=>{
                         <label >Sloka Number<Form className="d-flex " style={{width:"15em",alignItems:"center"}}  >
                               <FormControl className="text-center" type="text" style={{alignContent:"middle"}} placeholder="e.g. 1-2" onChange={ (event)=>{ setSloka(event.target.value)  }}/>
                         </Form></label> <br></br><br></br>
-
-                        <Button onClick={ sendData }>Send Word</Button>
+                        <h4>{sentresult}</h4>
+                        <Button onClick={ sendData }>Send Word</Button> 
+                        
 
                 </>
                :<></>

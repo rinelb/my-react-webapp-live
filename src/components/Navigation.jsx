@@ -8,6 +8,7 @@ import Course from '../pages/Course';
 import About from '../pages/About';
 import AOL from '../pages/AOL';
 import Sanskrit  from '../pages/Sanskrit';
+import SanskritDisplay from '../pages/SanskritDisplay';
 
    class Navigation extends Component {
   render() {
@@ -33,6 +34,9 @@ import Sanskrit  from '../pages/Sanskrit';
                 <NavItem eventkey={1} href="/courses">
                   <Nav.Link as={Link} to="/courses" >Courses</Nav.Link>
                 </NavItem>
+                <NavItem eventkey={1} href="/learnSanskrit">
+                  <Nav.Link as={Link} to="/learnSanskrit" >Learn Sanskrit</Nav.Link>
+                </NavItem>
                 <NavItem eventkey={1} href="/about">
                   <Nav.Link as={Link} to="/about" >About</Nav.Link>
                 </NavItem>
@@ -52,6 +56,7 @@ import Sanskrit  from '../pages/Sanskrit';
         <div>
           <Routes>
             <Route exact path='/books' element={() => <Books />} />
+            <Route exact path='/learnSanskrit' element={() => <SanskritDisplay />} />
             <Route exact path='/courses' element={() => <Course />} />
             <Route exact path='/sanskrit' element={() => <Sanskrit />} />
             <Route exact path='/about' element={() => <About />} />
