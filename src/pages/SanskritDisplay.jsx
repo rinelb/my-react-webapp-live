@@ -41,6 +41,7 @@ const SanskritDisplay = ()=>{
     const [ dSankrit, setDSankrit ] = useState("")
     const [ dPhonic, setDPhonic ] = useState("")
     const [ sMean, setSMean ] = useState(false)
+    const [ sStart, setSStart ] = useState(false)
     const [ sSankrit, setSSankrit ] = useState(false)
     const [ sPhonic, setSPhonic ] = useState(true)
 
@@ -127,7 +128,7 @@ const SanskritDisplay = ()=>{
           console.log(res.text);
           SetGetData(res.text)
           setSentresult(JSON.parse(res.text))
-          setSMean(true)
+          setSStart(true)
           });  
 
        
@@ -156,6 +157,7 @@ const SanskritDisplay = ()=>{
 
       const nextWordSanskrit=()=>{
         SetstartNext("Next")
+        setSMean(false)
         const index = Math.floor(Math.random() * sentresult.length)
         // const item = sentresult[index];
         console.log("nexted clicked "+index)
@@ -178,6 +180,12 @@ const SanskritDisplay = ()=>{
          }
          
       }
+
+      const toggleMeaning = ( )=> {
+        setSMean(true)
+        
+        
+     }
 
       const clearDrawing = ( )=> {
         const context = CanvasDraw.getContext('2d');
@@ -207,8 +215,7 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
                                 <Dropdown.Item eventKey="some link">some link</Dropdown.Item>
                   </DropdownButton>
                   <br/>
-                  {(sMean)?<><Button variant="success" onClick={nextWordSanskrit}>{startNext}</Button></>:<></>}
-                  <br/>
+                  
 
                   <h2>{displaySingleWord}</h2>
     <Form>
@@ -235,8 +242,12 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
           />
           
         </div>
+        {(sStart)?<><Button  className='p-2 m-2' variant="success" onClick={nextWordSanskrit}>{startNext}</Button></>:<></>}
+                   
+        <Button className='p-2 m-2' onClick={toggleMeaning}>Show Meaning</Button>
         {(sPhonic)?<><h3>{dPhonic}</h3></>:<></>}
         {(sSankrit)?<><h3>{dSankrit}</h3></>:<></>} 
+        {(sMean)?<><h3>{dMean}</h3></>:<></>} <br></br>
       
     </Form>
 
@@ -248,6 +259,9 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
                   <Button className='p-2 m-2' onClick={() => {
               saveableCanvas.undo();}}>undo</Button>
                   <br/>
+                
+
+                 
                   
 
                   {/* {sentresult.map(word => ( 
