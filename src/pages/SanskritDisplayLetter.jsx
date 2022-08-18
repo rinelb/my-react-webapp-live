@@ -140,6 +140,7 @@ const SanskritDisplayLetter = ()=>{
        
 
       const nextWordSanskrit=()=>{
+        saveableCanvas.eraseAll()
         SetstartNext("Next Word")
         setSLetter(false)
         SetShowPrevious(true)
