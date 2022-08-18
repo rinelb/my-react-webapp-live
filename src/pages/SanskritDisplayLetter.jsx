@@ -37,6 +37,7 @@ const SanskritDisplayLetter = ()=>{
     
 
     const [ sVowels, SetSVowels] = useState(true)
+    const [ sVowelsTest, SetSVowelsTest] = useState(false)
     const [ startNext,  SetstartNext] = useState("Start Test")
     const [ dMean, setDMean ] = useState("")
     const [ dSankrit, setDSankrit ] = useState("")
@@ -147,16 +148,23 @@ const SanskritDisplayLetter = ()=>{
         setPreviousWord(currentWord)
         SetSAnswer(true)
         let indexVowel
-        if (sVowels){
-             indexVowel = Math.floor(Math.random() * (16))
-            // const item = sentresult[index];
-            console.log("nexted clicked "+indexVowel)
-             
+        let indexConst
+        if (sVowelsTest){
+          indexVowel = Math.floor(Math.random() * (16))
+          indexConst = 19
         }else{
-           indexVowel = 0
+          indexConst =19+ Math.floor(Math.random() * (54-20))
+            if (sVowels){
+                indexVowel = Math.floor(Math.random() * (16))
+                // const item = sentresult[index];
+                console.log("nexted clicked "+indexVowel)
+                
+            }else{
+              indexVowel = 0
 
+            }
         }
-        const indexConst =19+ Math.floor(Math.random() * (54-20))
+         
         console.log("nexted Constant "+indexConst +"\nnext vowel " + indexVowel)
        
         const tempWord = ""+SanskritLetter[indexConst].letter+SanskritLetter[indexVowel].letter
@@ -187,6 +195,11 @@ const SanskritDisplayLetter = ()=>{
         SetSVowels(!sVowels)
         
      }
+
+     const onValueChangeVolwesTest = (event)=> {
+      SetSVowelsTest(!sVowelsTest)
+      
+   }
 
       const toggleMeaning = ( )=> {
         setSLetter(true)
@@ -244,8 +257,7 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
           <Form.Check
             inline
             label="Text"
-            name="group1"
-            checked='yes'
+            name="group1" 
             type={'radio'}
             id={'text'}
             checked={sPhonic}
@@ -254,12 +266,20 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
           <Form.Check
             inline
             label="Randomise vowel"
-            name="group1"
-            checked='yes'
+            name="group1" 
             type={'checkbox'}
             id={'vowel'}
             checked={sVowels}
             onClick={onValueChangeVolwes}
+          />
+          <Form.Check
+            inline
+            label="only vowel"
+            name="group1" 
+            type={'checkbox'}
+            id={'vowelTest'}
+            checked={sVowelsTest}
+            onClick={onValueChangeVolwesTest}
           />
           
         </div>
