@@ -1,5 +1,5 @@
 import { Routes, Route} from 'react-router-dom';
-import { Navbar, Nav, Form, FormControl, Button, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, Form, FormControl, Button, NavItem ,NavDropdown} from 'react-bootstrap';
 import Books from '../pages/Books'; 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -27,19 +27,30 @@ import SanskritDisplay from '../pages/SanskritDisplay';
                   <Nav.Link as={Link} to="/aol" >AOL</Nav.Link>
                 </NavItem>
 
-                <NavItem eventkey={1} href="/sanskrit">
+                {/* <NavItem eventkey={1} href="/sanskrit">
                   <Nav.Link as={Link} to="/sanskrit" >Sanskrit</Nav.Link>
-                </NavItem>
+                </NavItem> */}
               
                 <NavItem eventkey={1} href="/courses">
                   <Nav.Link as={Link} to="/courses" >Courses</Nav.Link>
                 </NavItem>
-                <NavItem eventkey={1} href="/learnSanskrit">
-                  <Nav.Link as={Link} to="/learnSanskrit" >Learn Sanskrit</Nav.Link>
-                </NavItem>
+                {/* <NavItem eventkey={1} href="/learnMantra">
+                  <Nav.Link as={Link} to="/learnMantra" >Learn Sanskrit</Nav.Link>
+                </NavItem> */}
                 <NavItem eventkey={1} href="/about">
                   <Nav.Link as={Link} to="/about" >About</Nav.Link>
                 </NavItem>
+
+                {[false].map((expand) => ( <NavDropdown
+                title="Sanskrit"
+                id={`offcanvasNavbarDropdown-expand-${expand}`}
+              >
+                <NavDropdown.Item href="/sanskrit/letters">Fundemental Letters</NavDropdown.Item>
+                <NavDropdown.Item href="/sanskrit/learnBasic">Fundemental Test</NavDropdown.Item>
+                <NavDropdown.Item href="/sanskrit/learnMantra">Mantra Test</NavDropdown.Item>
+                {/* <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item> */}
+              </NavDropdown>))}
                 
               </Nav>
               <Nav className='ms-auto pull-right'>

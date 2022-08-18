@@ -32,22 +32,17 @@ import Sanskrit  from '../pages/Sanskrit';
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/books">Books</Nav.Link>
               <Nav.Link href="/courses">Courses</Nav.Link>
-              <Nav.Link href="/sanskrit">Sanskrit</Nav.Link>
-              <Nav.Link href="/learnSanskrit">Learn Sanskrit</Nav.Link>
               <Nav.Link href="/aol">AOL</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <NavDropdown
-                title="Dropdown"
+                title="Sanskrit"
                 id={`offcanvasNavbarDropdown-expand-${expand}`}
               >
-                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action4">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action5">
-                  Something else here
-                </NavDropdown.Item>
+                <NavDropdown.Item href="/sanskrit/letters">Fundemental Letter</NavDropdown.Item>
+                <NavDropdown.Item href="/sanskrit/learnBasic">Fundemental Test</NavDropdown.Item>
+                <NavDropdown.Item href="/sanskrit/learnMantra">Mantra Test</NavDropdown.Item>
+                {/* <NavDropdown.Divider />
+                <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item> */}
               </NavDropdown>
             </Nav>
             <Form className="d-flex">

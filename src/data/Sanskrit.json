@@ -20,7 +20,6 @@
 {"id":17,"letter":"M"},
 {"id":18,"letter":"H"},
 {"id":19,"letter":"~"}, 
-
 {"id":21,"letter":"k"},
 {"id":22,"letter":"kh"},
 {"id":23,"letter":"g"},
@@ -46,7 +45,6 @@
 {"id":43,"letter":"b"},
 {"id":44,"letter":"bh"},
 {"id":45,"letter":"m"},
-
 {"id":46,"letter":"y"},
 {"id":47,"letter":"r"},
 {"id":48,"letter":"l"},
@@ -57,7 +55,6 @@
 {"id":53,"letter":"h"},
 {"id":54,"letter":"kS"},
 {"id":55,"letter":"jJ"},
-
 {"id":56,"letter":"0"},
 {"id":57,"letter":"1"},
 {"id":58,"letter":"2"},
@@ -68,7 +65,6 @@
 {"id":63,"letter":"7"},
 {"id":64,"letter":"8"},
 {"id":65,"letter":"9"},
-
 {"id":66,"letter":"OM"},
 {"id":68,"letter":"|"},
 {"id":69,"letter":"||"},
