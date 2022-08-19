@@ -48,8 +48,11 @@ const SanskritDisplayLetter = ()=>{
     const [ sPhonic, setSPhonic ] = useState(false)
     const [ showLetter, setShowLetter ] = useState("")
     const [ previousWord, setPreviousWord] = useState("")
+    const [ previousPhonic, setPreviousPhonic] = useState("")
     const [ currentWord, setCurrentWord] = useState("")
+    const [ currentPhonic, setCurrentPhonic] = useState("")
     const [ showPrevious, SetShowPrevious] = useState(false)
+    const [ showAll, setShowAll  ] = useState("")
 
     const [  sAnswer,SetSAnswer ] = useState(false)
     // const [ ,  ] = useState("")
@@ -146,6 +149,7 @@ const SanskritDisplayLetter = ()=>{
         setSLetter(false)
         SetShowPrevious(true)
         setPreviousWord(currentWord)
+        setPreviousPhonic(currentPhonic)
         SetSAnswer(true)
         let indexVowel
         let indexConst
@@ -168,13 +172,15 @@ const SanskritDisplayLetter = ()=>{
         console.log("nexted Constant "+indexConst +"\nnext vowel " + indexVowel)
        
         const tempWord = ""+SanskritLetter[indexConst].letter+SanskritLetter[indexVowel].letter
+         
         setCurrentWord(tempWord)
         setDSankrit(Sanscript.t(tempWord, 'hk', 'devanagari'))
-        setDPhonic(SanskritLetter[indexConst].letter+SanskritLetter[indexVowel].letter)
+        setDPhonic(""+SanskritLetter[indexConst].phonic+SanskritLetter[indexVowel].phonic)
+        setCurrentPhonic(""+SanskritLetter[indexConst].phonic+SanskritLetter[indexVowel].phonic)
         if (!sSankrit){
           setShowLetter(Sanscript.t(tempWord, 'hk', 'devanagari'))
         }else{
-          setShowLetter(SanskritLetter[indexConst].letter+SanskritLetter[indexVowel].letter)
+          setShowLetter(SanskritLetter[indexConst].phonic+SanskritLetter[indexVowel].phonic)
         }
 
         
@@ -201,6 +207,14 @@ const SanskritDisplayLetter = ()=>{
       
    }
 
+   const onValueChangeShowAll= ( )=> {
+    setShowAll(!showAll)
+   
+    
+    
+    
+ }
+
       const toggleMeaning = ( )=> {
         setSLetter(true)
        
@@ -221,12 +235,13 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
         SetShowPrevious(false)
         
         setCurrentWord(previousWord)
+        setCurrentPhonic(previousPhonic)
         setDSankrit(Sanscript.t(previousWord, 'hk', 'devanagari'))
-        setDPhonic(Sanscript.t(previousWord,  'devanagari','hk'))
+        setDPhonic(previousPhonic)
         if (!sSankrit){
           setShowLetter(Sanscript.t(previousWord, 'hk', 'devanagari'))
         }else{
-          setShowLetter(Sanscript.t(previousWord,  'devanagari','hk'))
+          setShowLetter(previousPhonic)
         }
 
      }
@@ -271,7 +286,7 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
             id={'vowel'}
             checked={sVowels}
             onClick={onValueChangeVolwes}
-          />
+          /><br></br>
           <Form.Check
             inline
             label="only vowel"
@@ -280,6 +295,16 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
             id={'vowelTest'}
             checked={sVowelsTest}
             onClick={onValueChangeVolwesTest}
+          />
+
+        <Form.Check
+            inline
+            label="show all"
+            name="group1" 
+            type={'checkbox'}
+            id={'showall'}
+            checked={showAll}
+            onClick={onValueChangeShowAll}
           />
           
         </div>
@@ -290,7 +315,7 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
         {(sAnswer)?<><Button className='p-2 m-2' onClick={toggleMeaning}>Show Letter</Button></>:<></>}
         {(sPhonic)?<><h3>{dPhonic}</h3></>:<></>}
         {(sSankrit)?<><h3>{dSankrit}</h3></>:<></>} 
-        {(sLetter)?<><h3>{showLetter}</h3></>:<></>} <br></br>
+        {(sLetter || showAll)?<><h3>{showLetter}</h3></>:<></>} <br></br>
       
     </Form>
 

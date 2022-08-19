@@ -10,6 +10,7 @@ import SanskritNum from  '../data/SankritNum.json'
 import SanskritSplV from  '../data/ShankritSplVowle.json'
 import SanskritRest from  '../data/SankritRest.json'
 import request from 'superagent';
+import dental from '../assests/positions.png'
 const bookNumber = 6
 // const maxPageNumber = Math.floor(bookItems.length /6)
 // const maxBooks = bookItems.length
@@ -28,6 +29,8 @@ const Sanskrit = ()=>{
 
     const [mobile, setMobile] = useState(0)
     const [addWord, setAddWord] = useState(false)
+    const [encode, setEncode] = useState("Encoder Format")
+    const [mapping, setMapping] = useState(true)
     const [wordRaw, setWordRaw] = useState("")
     const [outputWord, setOutputWord] = useState("")
     const [outputWordReverse, setOutputWordReverse] = useState("")
@@ -169,6 +172,17 @@ const Sanskrit = ()=>{
        
       };
 
+      const changeLang = () => {
+        // 👇️ passed function to setState 
+        setMapping(!mapping)
+        if (mapping){
+          setEncode("Phonic Format")
+        }else{
+          setEncode("Encoder Format")
+        }
+      };
+
+
 
     return(
          
@@ -222,10 +236,13 @@ const Sanskrit = ()=>{
                :<></>
                }
                 <hr></hr>
+                <Button onClick={changeLang}>{encode}</Button>
             </center>
              { (mobile==1) ?
              <>
+
              <center><h1>Sanskrit Mapping Code</h1><br/><br/></center>
+                  {(!mapping)?
                     <Container>  
                         <Row md={4} xs={4} lg={4} className="g-3 align-items-center "  >
                             {SankritVol.map(letter => ( 
@@ -272,10 +289,63 @@ const Sanskrit = ()=>{
                              ))} 
                                 </Row>
                      </Container>
+                     :
+                            <>
+                              <center><img src={dental} style={{height:"70%",width:"70%"}}></img></center><br></br>
+                                <Container>  
+                                <Row md={4} xs={4} lg={4} className="g-3 align-items-center "  >
+                                    {SankritVol.map(letter => ( 
+                                        <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+                                    <br></br>
+                                    <Row md={3} xs={3} lg={3} className="g-3 align-items-center "  >
+                                {Sankrit3.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritCons.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br><br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritSplV.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br><br></br>
+                                    <Row md={3} xs={3} lg={3} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritRest.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+
+
+                                    <br></br><br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritNum.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+                          </Container>
+                      </>}
             </> 
             : // PC version
             <>
             <center><h1>Sanskrit Mapping Code</h1><br/><br/></center>
+            {(!mapping)?<>
+            
+            
                     <Container>  
                         <Row md={4} xs={4} lg={4} className="g-3 align-items-center "  >
                             {SankritVol.map(letter => ( 
@@ -322,6 +392,58 @@ const Sanskrit = ()=>{
                              ))} 
                                 </Row>
                      </Container>
+                </>:
+                <>
+ 
+                              <center><img src={dental} style={{height:"70%",width:"70%"}}></img></center><br></br>
+                                <Container>  
+                                <Row md={4} xs={4} lg={4} className="g-3 align-items-center "  >
+                                    {SankritVol.map(letter => ( 
+                                        <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+                                    <br></br>
+                                    <Row md={3} xs={3} lg={3} className="g-3 align-items-center "  >
+                                {Sankrit3.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritCons.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br><br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritSplV.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.phonic} <span style={{fontSize:"9px"}}>{letter.mouth}</span></h5></Col>
+                                  ))} 
+                                    </Row>
+
+                                    <br></br><br></br>
+                                    <Row md={3} xs={3} lg={3} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritRest.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+
+
+                                    <br></br><br></br>
+                                    <Row md={5} xs={5} lg={5} className="g-3 align-items-center "  >
+                                  
+                                  {SanskritNum.map(letter => ( 
+                                    <Col className="text-center text-md-right bg-light" key={letter.id}><h5> {Sanscript.t(letter.letter, 'hk', 'devanagari')} : {letter.letter}</h5></Col>
+                                  ))} 
+                                    </Row>
+                          </Container>
+
+                </>}
             </>
             }
              

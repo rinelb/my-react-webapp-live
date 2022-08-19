@@ -233,8 +233,7 @@ context.clearRect(0, 0, CanvasDraw.width, CanvasDraw.height);
           <Form.Check
             inline
             label="Text"
-            name="group1"
-            checked='yes'
+            name="group1" 
             type={'radio'}
             id={'text'}
             checked={sPhonic}
